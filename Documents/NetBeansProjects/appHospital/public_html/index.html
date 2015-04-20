@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html  ng-app= "aplicacionHospital">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/app.css">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <toolbar></toolbar> 
+        <div class="container theme-showcase" role="main">
+ 
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img src="images/doctorUno.jpg" class="mundialimg-responsive" alt="500x500" data-holder-rendered="true">
+                </div>
+                <div class="col-md-7">
+                    <h2>Hola, Dr. Gomez</h2>
+                    <p class="lead">
+                        Sientase libre de buscar la informacion que necesite de sus pacientes usando la opciones que le ofresemos.
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <toolbar></toolbar>
+            <div ng-if="toolbar.isSelected(1)">
+                <pacientes-form></pacientes-form>
+            </div>
+            <div ng-if="toolbar.isSelected(2)">
+                <pacientes-fecha-form></pacientes-fecha-form>
+            </div>
+            <div ng-if="toolbar.isSelected(3)">
+                <paciente-form></paciente-form>
+            </div>    
+            <div ng-if="toolbar.isSelected(4)">
+                <log-in></log-in>
+            </div>
+            
+            
+            
+            
+        </div>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/AngularControllers/app.js"></script>
+    </body>
+</html>

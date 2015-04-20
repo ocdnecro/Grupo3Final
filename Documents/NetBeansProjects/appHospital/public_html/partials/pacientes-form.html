@@ -1,0 +1,46 @@
+<form name="pacientesForm"  method = "get" id="pacientesForm" validate>
+    <h2 class="form-title">Ingrese el numero de ID del paciente</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <label>Cedula paciente:</label>
+            <input type="text" class="form-control" placeholder ="ej:901010101" id="pacientesForm"  required data-validation-required-message="Porfavor ingresar la cedula del paciente que desea consultar" ng-model='idA'>
+        </div>
+        <div id ="success"></div>
+    </div>
+    <div class="form-group col-xs-12" ng-click="pacientesCtrl.verEpiPacientes(idA)">
+        <input type="submit" value="Buscar" class="btn btn-default" >
+    </div>
+</form>
+
+<h2 class="form-title">Episodios de dolor</h2>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Episodios</div>
+    <!-- Table -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fecha Creacion</th>
+            <th>Cedula</th>
+            <th>Localizacion</th>
+            <th>Alivio</th>
+            <th>Intensidad</th>
+            <th>Nivel de Dolor</th>
+            
+        </tr>
+        </thead>
+       
+        <tr ng-repeat="competitor in pacientesCtrl.competitors | orderBy: 'cedula'">
+            <td>{{competitor.id}}</td>
+            <td>{{competitor.fecha}}</td>
+            <td>{{competitor.cedula}}</td>
+            <td>{{competitor.localizacion}}</td>
+            <td>{{competitor.alivio}}</td>
+            <td>{{competitor.intensidad}}</td>
+            <td>{{competitor.nivelDolor}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div> 
+

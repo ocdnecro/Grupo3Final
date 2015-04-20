@@ -1,0 +1,35 @@
+ <h2 class="form-title">List of all competitors</h2>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Competitors</div>
+    <!-- Table -->
+    <div ng-click="">
+    <button type="button">Click Me!</button>
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Nivel de Dolor</th>
+            <th>Localizacion</th>
+            <th>Intensidad</th>
+            <th>Nivel de alivio</th>
+            <th>Medicamentos</th>
+            <th>Alimentos</th>
+            <th>Bebidas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{pacientesCtrl.pa.id}}</td>
+            <td>{{pacientesInfo.cedula}}</td>
+            <td>{{competitor.fecha}}</td>
+            <td>{{competitor.nivelDolor}}</td>
+            <td>{{competitor.intensidad}}</td>
+            <td>{{competitor.alivio}}</td>
+            <td>{{competitor.localizacion}}</td> 
+        </tr>
+        </tbody>
+    </table>
+</div> 
