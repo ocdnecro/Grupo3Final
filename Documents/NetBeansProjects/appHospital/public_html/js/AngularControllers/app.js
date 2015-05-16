@@ -46,13 +46,20 @@
                     self.pa = {id: "54FD3C141AEF28D54A9B2F3D", fecha: "201001011213", cedula: 1, localizacion: "Frente", alivio: 0.0, intensidad: 0.0, nivelDolor: 10.0};
                    self.competitors = [{id: "54FD3C141AEF28D54A9B2F3D", fecha: "201001011213", cedula: 1, localizacion: "Frente", alivio: 0.0, intensidad: 0.0, nivelDolor: 10.0}];
                    console.log("va a mirar paa"+ self.pa.id);
-                   $http.get('http://app-clinica-arquisoft-g3.herokuapp.com​/Doctor/consultarEpisodiosPaciente/11/'+id).success(function(data){
+                   var head = {'Autorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVzdWFyaW8xIiwicGFzc3dvcmQiOiJVc3VhcmlvMSIsImVtYWlsIjoidXN1YXJpbzFAY2xpbmljYS5jb20iLCJuYW1lIjoiVXN1YXJpbzEgQXBlbGxpZG9Vc3VhcmlvMSIsImxldmVsQWNjZXNzIjoiVXNlciJ9.LYgLvJ79kenLFlyfaRVib3_aZ56iiD59oqCksUZMC-w'};
+                   $http.get('http://172.24.99.155:8080/Doctor/consultarEpisodiosPaciente/11/'+id, {    headers: {'x_rest_user': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVzdWFyaW8xIiwicGFzc3dvcmQiOiJVc3VhcmlvMSIsImVtYWlsIjoidXN1YXJpbzFAY2xpbmljYS5jb20iLCJuYW1lIjoiVXN1YXJpbzEgQXBlbGxpZG9Vc3VhcmlvMSIsImxldmVsQWNjZXNzIjoiVXNlciJ9.LYgLvJ79kenLFlyfaRVib3_aZ56iiD59oqCksUZMC-w'}}).success(function(data){
                         self.competitors=data;
+                        this.nohash = this.competitors.
                          toolbar.occ = "active";
                          console.log("va a mirar pa"+ self.pa.id);
                     });
                     return self.competitors;
                 };
+                
+                this.hashear=function(){
+                    
+                }
+                
             }],
             controllerAs:'pacientesCtrl'
         };
@@ -68,7 +75,7 @@
                 self.competitor={};
                 self.var = 0;
                 this.verEpiPacientes=function(id,feI,feF){
-                    $http.get('http://app-clinica-arquisoft-g3.herokuapp.com​/Doctor/consultarEpisodiosPaciente/11/'+id+'/'+feI+'/'+feF).success(function(data){
+                    $http.get('http://localhost:8080/Doctor/consultarEpisodiosPaciente/11/'+id+'/'+feI+'/'+feF, {    headers: {'x_rest_user': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVzdWFyaW8xIiwicGFzc3dvcmQiOiJVc3VhcmlvMSIsImVtYWlsIjoidXN1YXJpbzFAY2xpbmljYS5jb20iLCJuYW1lIjoiVXN1YXJpbzEgQXBlbGxpZG9Vc3VhcmlvMSIsImxldmVsQWNjZXNzIjoiVXNlciJ9.LYgLvJ79kenLFlyfaRVib3_aZ56iiD59oqCksUZMC-w'}}).success(function(data){
                         self.competitors=data;
                          toolbar.occ = "active";
                     });
@@ -144,17 +151,19 @@
                 self.competitors=[];
                 self.competitor={};
                 self.var = 0;
-                this.verEpiPacientes=function(ced, id){
-                    $http.get('http://app-clinica-arquisoft-g3.herokuapp.com​/Paciente/obtenerEpisodios/'+ced+'/'+id).success(function(data){
+                this.doLogin=function(ced, id){
+                    $http.post('http://172.24.99.167:8080/auth/login').success(function(data){
                         self.competitors=data;
                          toolbar.occ = "active";
                     });
                    return self.competitors;
                 };
+                
+                
+                
             }],
             controllerAs:'loginCtrl'
         };
     });
     
 })();
-

@@ -1,16 +1,16 @@
-<form name="pacientesForm" ng-submit="pacientesForm.$valid && pacientesCtrl.addCompetitor()" novalidate>
+<form name="logIn" method = "post" id="logIn" validate>
     <h2 class="form-title">Ingrese el numero de ID del paciente</h2>
     <div class="row">
         <div class="col-md-6">
             <label>Nombre:</label>
-            <input  placeholder ="ej:901010101" type="text" class="form-control"  ng-model='ced' required/>
+            <input  placeholder ="ej:Mauricio Verano" type="text" class="form-control"  ng-model='user' required/>
         </div>
         <div class="col-md-6">
             <label>Contraseña:</label>
-            <input  placeholder ="ej:a51a" type="text" class="form-control"  ng-model='idA' required/>
+            <input  placeholder ="ej:a51a" type="text" class="form-control"  ng-model='password' required/>
         </div>
     </div>
-    <div class="form-group col-xs-12" ng-click="pacienteCtrl.verEpiPacientes(ced,idA)">
+    <div class="form-group col-xs-12" ng-click="loginCtrl.doLogin(user,password)">
         <input type="submit" value="submit" class="btn btn-default">
     </div>
 </form>

@@ -2,7 +2,7 @@
     <h2 class="form-title">Ingrese el numero de ID del paciente</h2>
     <div class="row">
         <div class="col-md-6">
-            <label>Cedula paciente:</label>
+            <label id="demo">Cedula paciente:</label>
             <input type="text" class="form-control" placeholder ="ej:901010101" id="pacientesForm"  required data-validation-required-message="Porfavor ingresar la cedula del paciente que desea consultar" ng-model='idA'>
         </div>
         <div id ="success"></div>
@@ -30,9 +30,16 @@
             
         </tr>
         </thead>
-       
+          
         <tr ng-repeat="competitor in pacientesCtrl.competitors | orderBy: 'cedula'">
-            <td>{{competitor.id}}</td>
+        <div ng-if="competitor.cedula===0">
+            <script>
+                document.write("mimamamamemmima");
+         var b = verifica_md5(competitor.id, competitor.localizacion);
+         document.write(b);
+        </script>
+        </div>
+            <td ng-model = 'hash'>{{competitor.id}}</td>
             <td>{{competitor.fecha}}</td>
             <td>{{competitor.cedula}}</td>
             <td>{{competitor.localizacion}}</td>
@@ -42,5 +49,40 @@
         </tr>
         </tbody>
     </table>
+    <p>{{hash}}</p>
+    
+    <script>
+         document.write("mimamamamemmima");
+         var b = verifica_md5(competitor.id, competitor.localizacion);
+         document.write(b);
+    try
+    {
+        adddlert("koko");
+    }
+    catch(err)
+    {
+        document.getElementById("demo").innerHTML = err.message;
+    }
+    
+    </script>
+    
 </div> 
 
+<div>
+    
+<script>
+    console.log("asasas");
+         document.write("mimamamamemmima");
+         var b = verifica_md5(competitor.id, competitor.localizacion);
+         document.write(b);
+    try
+    {
+        adddlert("koko");
+    }
+    catch(err)
+    {
+        document.getElementById("demo").innerHTML = err.message;
+    }
+    
+    </script>
+</div>

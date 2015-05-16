@@ -11,6 +11,7 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/AngularControllers/md5.js"></script>
     </head>
     <body>
         <toolbar></toolbar> 
@@ -26,7 +27,12 @@ and open the template in the editor.
                         Sientase libre de buscar la informacion que necesite de sus pacientes usando la opciones que le ofresemos.
                     </p>
                 </div>
+                <script>  
+         var b = md5_vm_test();
+         document.write(b);
+        </script>
             </div>
+            
             <hr>
             <toolbar></toolbar>
             <div ng-if="toolbar.isSelected(1)">
