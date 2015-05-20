@@ -31,7 +31,7 @@
         </tr>
         </thead>
           
-        <tr ng-repeat="competitor in pacientesCtrl.competitors | orderBy: 'cedula'">
+        <tr ng-repeat="competitor in pacientesCtrl.competitors | limitTo:pacientesCtrl.longitud-1">
         <div ng-if="competitor.cedula===0">
             <script>
                 document.write("mimamamamemmima");
@@ -50,6 +50,8 @@
         </tbody>
     </table>
     <p>{{hash}}</p>
+    
+    
     
     <script>
          document.write("mimamamamemmima");
@@ -86,3 +88,7 @@
     
     </script>
 </div>
+
+<div ng-if="mauricio=false">
+        <h1>Cuidado sus datos han sido corrompidos! </h1>
+    </div>
